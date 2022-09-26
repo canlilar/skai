@@ -15,9 +15,10 @@ Please follow these [instructions](https://cloud.google.com/resource-manager/doc
 
 ### Enable Service APIs
 
-SKAI uses the following Cloud services, so they must be [enabled](https://cloud.google.com/service-usage/docs/enable-disable). Visit each of the following links and click "Enable".
-
-
+SKAI uses the following Cloud services, so they must be [enabled](https://cloud.google.com/service-usage/docs/enable-disable). Run the command below to enable all of them:
+```
+gcloud services enable dataflow.googleapis.com aiplatform.googleapis.com compute.googleapis.com
+```
 
 *   [Dataflow](https://console.cloud.google.com/apis/library/dataflow.googleapis.com) - Needed for pre-processing data.
 *   [Vertex AI](https://console.cloud.google.com/apis/library/aiplatform.googleapis.com) - Needed for example labeling, model training, and model inference.
