@@ -1,0 +1,7 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-f', './WebAppDockerfile', '.' ]
+
+# Execute this by running this command:
+  # gcloud builds submit --config=WebAppcloudbuild.yaml
