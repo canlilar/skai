@@ -1,4 +1,5 @@
-# Title
+# Instructions to set up a web app for SKAI
+TODO: A paragraph explaining what it does and the need for it
 
 ### Assumptions
 The following instructions assume that the user has an existing GCP account. 
