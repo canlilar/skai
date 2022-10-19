@@ -12,7 +12,7 @@ app = Flask(__name__)
 # the associated function.
 @app.route("/")
 def hello_world():
-    name = os.environ.get("NAME", "World")
+    name = os.environ.get("NAME", "World This is your first app!")
     return "Hello {}!".format(name)
  
 # main driver function

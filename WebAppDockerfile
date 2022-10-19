@@ -18,7 +18,6 @@ RUN pwd
 RUN ls 
 
 # Install production dependencies.
-# RUN pip install -r webapp_requirements.txt
 RUN pip install -r webApp/webapp_requirements.txt
 
 # Run the web service on container startup. Here we use the gunicorn
@@ -33,8 +32,13 @@ ENTRYPOINT ["python"]
 CMD ["webApp/main.py"]
 
 # Deploy from the skai directory (not webApp directory) using the following command:
+# Before you begin
+Enable the Cloud Build, Cloud Run, Container Registry, and Resource Manager APIs.
 # ```
+# gcloud services enable run.googleapis.com cloudbuild.googleapis.com
 # export PROJECT_ID="$(gcloud config get-value project)"
+# git clone https://github.com/canlilar/skai
+# cd skai
 # homedir=$(pwd)
 # gcloud run deploy --source $homedir/webApp
 # ```

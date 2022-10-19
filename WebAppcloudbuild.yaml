@@ -1,7 +1,27 @@
+# steps:
+# # Build the container image
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: [ 'build', '-f', './WebAppDockerfile', '.' ]
+
+# docker build -f ./WebAppDockerfile . 
+# docker build -t gcr.io/$PROJECT_ID/myimage -f ./WebAppDockerfile . 
+
 steps:
-# Build the container image
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-f', './WebAppDockerfile', '.' ]
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/skai-image', '-f', './WebAppDockerfile', '.']
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/skai-image']
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: ['run', 'deploy', 'webapp', '--image', 'gcr.io/$PROJECT_ID/skai-image', '--region', 'us-east1']
+images:
+- gcr.io/$PROJECT_ID/skai-image
 
 # Execute this by running this command:
-  # gcloud builds submit --config=WebAppcloudbuild.yaml
+# gcloud builds submit --config=WebAppcloudbuild.yaml
+
+
+# Source: https://cloud.google.com/build/docs/deploying-builds/deploy-cloud-run
