@@ -14,7 +14,7 @@ gcloud services enable run.googleapis.com cloudbuild.googleapis.com containerreg
 ```
 
 ### Step 3
-To enable the required IAM permissions, please follow these instructions: https://cloud.google.com/build/docs/deploying-builds/deploy-cloud-run#cloud-run 
+To enable the required IAM permissions, please follow [these instructions](https://cloud.google.com/build/docs/deploying-builds/deploy-cloud-run#cloud-run) 
 TODO: run IAM permission set up via command line
 
 ### Step 4
@@ -28,3 +28,4 @@ Next we can deploy the app like this:
 export PROJECT_ID="$(gcloud config get-value project)"
 gcloud builds submit --config=WebAppcloudbuild.yaml
 ```
+You're app is now live! You can find the URL tied to it by navigating to the [Cloud Run service](https://console.cloud.google.com/run?enableapi=true&_ga=2.194155556.883783791.1666026522-1856103480.1665675816) in GCP 
