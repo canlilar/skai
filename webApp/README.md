@@ -30,3 +30,11 @@ export PROJECT_ID="$(gcloud config get-value project)"
 gcloud builds submit --config=WebAppcloudbuild.yaml
 ```
 You're app is now live! You can find the URL tied to it by navigating to the [Cloud Run service](https://console.cloud.google.com/run?enableapi=true&_ga=2.194155556.883783791.1666026522-1856103480.1665675816) in GCP 
+
+### To test the app locally
+In order to test the app locally, simple clone this repo and run the main stript
+```
+git clone https://github.com/canlilar/skai
+cd skai
+python webApp/main.py
+```
