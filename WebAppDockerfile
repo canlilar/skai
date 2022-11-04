@@ -31,6 +31,7 @@ RUN pip install -r webApp/webapp_requirements.txt
 ENTRYPOINT ["python"]
 CMD ["webApp/main.py"]
 
+#### Clean this up. ##### not necessary anymore
 # Deploy from the skai directory (not webApp directory) using the following command:
 # Before you begin
 Enable the Cloud Build, Cloud Run, Container Registry, and Resource Manager APIs.
